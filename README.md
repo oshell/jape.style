@@ -20,3 +20,17 @@ jape (javascript animated presentation editor) is an editor for creation of stun
   - showing/setting order of elements
   - authentication
   - save/load/export/preview
+
+### Installation
+
+```
+>> git clone https://github.com/oshell/jape.style.git jape
+>> cd jape
+>> npm install
+>> cd client
+>> npm install
+>> bower install
+>> npm start
+```
+
+```npm start``` runs frontend on port 3000 - backend has to be run seperately in root via ```node server.js```
