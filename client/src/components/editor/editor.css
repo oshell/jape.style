@@ -1,0 +1,61 @@
+#app{
+     background-color: #ccc;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Poor Story', cursive; */
+    /* font-family: 'Merriweather', serif; */
+    /* font-family: 'Playfair Display', serif; */
+}
+
+#editor-wrapper{
+   height:100vh;
+}
+
+#editor-main{
+  border-radius: 0;
+  border-width: 0 1px 0 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+
+#sidebar{
+  width: 300px;
+  color: #fff!important;
+  padding: 12px;
+  overflow-x: hidden;
+}
+
+#sidebar .header{
+  color:#fff;
+  text-align: left;
+}
+
+#sidebar button{
+  width: 100%;
+}
+
+#sidebar label{
+  color: #fff;
+  text-align: left;
+}
+
+#editor-bg {
+  background: radial-gradient(at center, #fff 60%, #ccc);
+  height: 100vh;
+}
+
+#buttonBar .icon{
+  padding: 0px 45px 45px 25px;
+  border: 1px solid #ccc;
+  font-size: 25px;
+  color: #fff;
+  background: #666;
+  transform: translateX(-100px);
+}
+
+#buttonBar{
+  position: absolute;
+  left: 50%;
+  z-index:100;
+}

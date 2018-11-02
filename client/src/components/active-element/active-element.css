@@ -1,0 +1,13 @@
+.active-element{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  width: 150px;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+.active-element input{
+  width: 100%;
+}
