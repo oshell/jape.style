@@ -1,0 +1,28 @@
+{
+  "name": "jape-frontend",
+  "description": "react based frontend for jape.style",
+  "main": "public/index.html",
+  "authors": [
+    "Horst Jahns <horstjahns@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "impress.js",
+    "jquery-impress",
+    "prezi",
+    "presentation"
+  ],
+  "homepage": "https://github.com/oshell/jape.style",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "semantic-ui#^2.4.0",
+    "jquery-impress": "^0.10.1"
+  }
+}
