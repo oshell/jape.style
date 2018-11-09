@@ -14,16 +14,17 @@ class ActiveElement extends Component {
   ]
 
   onChange(event) {
-    var element = this.props.element;
+    let element = this.props.element;
+    let calcValue = 0;
 
     switch (event.target.name) {
       case 'positionX':
-        var calcValue = Position.xCalc(event.target.value);
+        calcValue = Position.xCalc(event.target.value);
         element[event.target.name] = calcValue;
         break;
       case 'positionY':
-        var calcValue = Position.yCalc(event.target.value);
-          element[event.target.name] = calcValue;
+        calcValue = Position.yCalc(event.target.value);
+        element[event.target.name] = calcValue;
         break;
       default:
         element[event.target.name] = event.target.value;

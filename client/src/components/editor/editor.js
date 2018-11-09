@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Button, Sidebar, Header, Segment, Menu } from 'semantic-ui-react';
 import Playground from '../playground/playground';
-import { PlaygroundTypes } from '../../constants/playground-types';
+//import { PlaygroundTypes } from '../../constants/playground-types';
 import ComponentContainer from '../component-container/component-container';
 import ActiveElement from '../active-element/active-element';
 import './editor.css';
@@ -55,7 +54,7 @@ class Editor extends Component {
   }
 
   onKeyDown(event) {
-   var name="", pos=0, value=0, newPos=0, element={};
+    let pos=0, value=0, newPos=0, element={};
 
     if (!this.state.activeElement) {
       return;
@@ -63,7 +62,6 @@ class Editor extends Component {
 
     switch (event.key) {
       case "ArrowLeft":
-        name = 'positionX';
         pos = Position.xView(this.state.activeElement.positionX);
         value = --pos;
         newPos = Position.xCalc(value);
@@ -73,7 +71,6 @@ class Editor extends Component {
         this.changeElement(element);
         break;
       case "ArrowRight":
-        name = 'positionX';
         pos = Position.xView(this.state.activeElement.positionX);
         value = ++pos;
         newPos = Position.xCalc(value);
@@ -83,7 +80,6 @@ class Editor extends Component {
         this.changeElement(element);
         break;
       case "ArrowUp":
-        name = 'positionY';
         pos = Position.yView(this.state.activeElement.positionY);
         value = --pos;
         newPos = Position.yCalc(value);
@@ -93,7 +89,6 @@ class Editor extends Component {
         this.changeElement(element);
         break;
       case "ArrowDown":
-        name = 'positionY';
         pos = Position.yView(this.state.activeElement.positionY);
         value = ++pos;
         newPos = Position.yCalc(value);
@@ -101,7 +96,9 @@ class Editor extends Component {
         element = { ...this.state.activeElement };
         element.positionY = newPos;
         this.changeElement(element);
-      break;
+        break;
+      default:
+        break;
     }
   }
 
@@ -118,8 +115,6 @@ class Editor extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-
     return (
       <div id="editor-wrapper" onKeyDown={this.onKeyDown} tabIndex="0">
         <div id="buttonBar">
