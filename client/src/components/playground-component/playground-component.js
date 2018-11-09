@@ -18,6 +18,7 @@ class PlaygroundComponent extends Component {
       case PlaygroundTypes.area:
         return <div>Area</div>;
       case PlaygroundTypes.text:
+        divStyle.color = element.color;
         divStyle.fontFamily = element.fontFamily;
         divStyle.fontSize = element.fontSize + 'px';
         divStyle.lineHeight = 1.1;

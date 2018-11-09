@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import './active-element.css';
 import Position from '../../controller/position';
 import { PlaygroundTypes } from '../../constants/playground-types';
-import { Slider } from 'react-semantic-ui-range'
+import { Slider } from 'react-semantic-ui-range';
+import { SketchPicker } from 'react-color';
+import reactCSS from 'reactcss';
 
 class ActiveElement extends Component {
+  state = {
+    displayColorPicker: false,
+    color: {
+      r: '0',
+      g: '0',
+      b: '0',
+      a: '1',
+    },
+  };
+
   fonts = [
     'Roboto',
     'Open Sans',
@@ -14,6 +26,7 @@ class ActiveElement extends Component {
   ]
 
   onChange(event) {
+    console.log(event);
     let element = this.props.element;
     let calcValue = 0;
 
@@ -77,6 +90,69 @@ class ActiveElement extends Component {
     return fields
   }
 
+  addColorPicker(fields) {
+    const styles = reactCSS({
+      'default': {
+        color: {
+          width: '36px',
+          height: '14px',
+          borderRadius: '2px',
+          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+        },
+        swatch: {
+          padding: '5px',
+          background: '#fff',
+          borderRadius: '1px',
+          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
+          display: 'inline-block',
+          cursor: 'pointer',
+        },
+        popover: {
+          position: 'absolute',
+          zIndex: '2',
+        },
+        cover: {
+          position: 'fixed',
+          top: '0px',
+          right: '0px',
+          bottom: '0px',
+          left: '0px',
+        },
+      },
+    });
+
+    let field =
+      <div>
+        <div style={ styles.swatch } onClick={ this.handleColorPickerClick }>
+          <div style={ styles.color } />
+        </div>
+        { this.state.displayColorPicker ? <div style={ styles.popover }>
+          <div style={ styles.cover } onClick={ this.handleColorPickerClose }/>
+          <SketchPicker color={ this.state.color } onChange={ this.handleColorPickerChange } />
+        </div> : null }
+
+      </div>;
+
+    fields.push(field)
+    return fields
+  }
+
+  handleColorPickerClick = () => {
+     this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  }
+
+  handleColorPickerClose = () => {
+    this.setState({ displayColorPicker: false })
+  };
+
+  handleColorPickerChange = (color) => {
+    this.setState({ color: color.rgb });
+    let event = {
+      target: {name: 'color', value: color.hex}
+    }
+    this.onChange(event)
+  };
+
   render() {
     var element = this.props.element;
     var specificFields = [];
@@ -94,6 +170,7 @@ class ActiveElement extends Component {
         specificFields = this.addSlider(specificFields, element.rotationY, 0, 360, 'rotationY', 15);
         specificFields = this.addSlider(specificFields, element.rotationZ, 0, 360, 'rotationZ', 15);
         specificFields = this.addDropdown(specificFields, 'fontFamily', this.fonts);
+        specificFields = this.addColorPicker(specificFields);
         break;
       case PlaygroundTypes.image:
         break;
