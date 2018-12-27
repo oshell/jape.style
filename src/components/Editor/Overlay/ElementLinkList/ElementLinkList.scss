@@ -1,0 +1,21 @@
+@import "../../../../constants/scss/colors";
+@import "../../../../constants/scss/shadows";
+
+.element-link-list {
+  grid-area: element-link-list;
+  background-color: $bg-dark;
+  box-shadow: $shadow-default-inner;
+
+  &__element-link {
+    text-align: center;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    position: relative;
+    color: #fff;
+    border-radius: 3px;
+    width: 160px;
+    margin: 10px;
+    box-shadow: $shadow-default;
+    cursor: pointer;
+  }
+}

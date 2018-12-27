@@ -1,0 +1,12 @@
+@import "../../../../constants/scss/_constants";
+
+.logo{
+  grid-area: header__logo;
+  align-self: stretch;
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+  line-height: $header-height;
+  border-right: 1px solid $bg-grey;
+  background: $bg-dark;
+}
