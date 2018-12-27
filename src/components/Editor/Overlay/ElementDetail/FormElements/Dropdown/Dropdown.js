@@ -2,7 +2,7 @@ import React from 'react';
 
 const Dropdown = (props) => {
   return(
-    <div className='field'>
+    <div className='element-detail__field'>
       <label>{props.name}</label>
       <select onChange={props.onChange}>
         {props.options.map((option, index) => {

@@ -31,7 +31,7 @@ class Colorpicker extends Component {
 
   render() {
     return(
-      <div>
+      <div className="element-detail__field">
         <div className="colorpicker__swatch" onClick={ this.handleColorPickerClick.bind(this) }>
           <div className="colorpicker__color" style={{background: this.state.color}} />
         </div>

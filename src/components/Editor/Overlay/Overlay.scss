@@ -5,18 +5,14 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  grid-template-columns: $sidebar-width auto $sidebar-width;
+  grid-template-columns: $sidebar-width auto $active-element-width;
   grid-template-rows: $header-height auto $footer-height;
   grid-template-areas:
-    "header__logo header__controls header__controls"
+    "logo controls controls"
     "element-link-list . element-detail"
     "footer footer footer";
 }
 
-.element-detail {
-  grid-area: element-detail;
-  background-color: yellow;
-}
 .footer {
   grid-area: footer;
   background-color: green;

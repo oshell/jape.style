@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditorController from '../../../../controller/EditorController';
 import Text from './ElementTypes/Text';
+import './ElementDetail.scss';
 
 class ElementDetail extends Component {
   render() {
@@ -20,7 +21,11 @@ class ElementDetail extends Component {
         form = <Text />;
     }
 
-    return(<div className="element-detail">{form}</div>);
+    return(
+      <div className="element-detail">
+        <div className="element-detail--box">{form}</div>
+      </div>
+    );
   }
 }
 

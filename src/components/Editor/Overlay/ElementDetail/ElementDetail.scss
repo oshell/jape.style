@@ -1,0 +1,17 @@
+@import "../../../../constants/scss/_constants";
+
+.element-detail{
+  grid-area: element-detail;
+
+  &__field{
+    margin: 10px 10px 0;
+  }
+
+  &--box{
+    background-color: $bg-darkgrey;
+    box-shadow: $shadow-default;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+  }
+}
