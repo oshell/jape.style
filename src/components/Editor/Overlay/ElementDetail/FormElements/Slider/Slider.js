@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { editElement } from '../../../../../../actions/actions';
 import ReactSlider from 'react-slider';
 import './Slider.scss';
 
-const Slider = (props) => {
-  return(
-    <ReactSlider
-      className="element-detail__field slider"
-      min={props.min ? props.min : 0}
-      max={props.max ? props.max : 100}
-      step={props.step ? props.step : 1}
-      defaultValue={props.defaultValue ? props.defaultValue : 50}
-      disabled={props.disabled ? props.disabled : false}
-      onChange={props.onChange ? props.onChange : null}
-      />
-  );
+class Slider extends Component {
+  render() {
+    return(
+      <ReactSlider
+        className="element-detail__field slider"
+        min={this.props.min ? this.props.min : 0}
+        max={this.props.max ? this.props.max : 100}
+        step={this.props.step ? this.props.step : 1}
+        defaultValue={this.props.defaultValue ? this.props.defaultValue : 50}
+        disabled={this.props.disabled ? this.props.disabled : false}
+        onChange={this.props.onChange ? this.props.onChange : null}
+        withBars
+        />
+    );
+  }
 }
 
-export default Slider
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {editElement};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slider);

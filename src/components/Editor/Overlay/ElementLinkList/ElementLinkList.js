@@ -9,7 +9,6 @@ class ElementLinkList extends Component {
 
     if (elements.length) {
       elements = elements.map((element, index) => {
-        element.index = index;
         return(<ElementLink index={index} element={element}/>);
       });
     }

@@ -31,6 +31,7 @@ class EditorController {
     let modified = elements.slice();
     modified.push(element);
     modified = this.activateLastElement(modified);
+    modified = this.addIndexProp(modified);
     return modified;
   }
 
@@ -41,6 +42,14 @@ class EditorController {
         return element;
       }
     }
+  }
+
+  static addIndexProp(elements) {
+    for (let i=0; i<elements.length; i++) {
+      let element = elements[i];
+      element.index = i;
+    }
+    return elements;
   }
 
   static editElement(element, elements) {
