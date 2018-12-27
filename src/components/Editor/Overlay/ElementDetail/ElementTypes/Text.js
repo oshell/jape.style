@@ -9,8 +9,8 @@ const Text = () => {
   return(
     <div>
       <Input />
-      <Slider min={10} max={60} defaultValue={20} />
-      <Slider min={0} max={360} defaultValue={0} step={15} />
+      <Slider min={10} max={60} defaultValue={20} propertyName="fontSize" />
+      <Slider min={0} max={360} defaultValue={0} step={15} propertyName="rotationZ" />
       <Dropdown options={fonts} onChange={()=>{console.log('foo')}} />
       <Colorpicker />
     </div>
