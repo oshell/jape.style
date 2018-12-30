@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditorController from '../../../../controller/EditorController';
+import { ELEMENT_TYPES } from '../../../../constants/ElementTypes';
 import Text from './ElementTypes/Text';
+import Area from './ElementTypes/Area';
 import './ElementDetail.scss';
 
 class ElementDetail extends Component {
@@ -14,8 +16,11 @@ class ElementDetail extends Component {
     }
 
     switch (activeElement.type) {
-      case 'text':
+      case ELEMENT_TYPES.text:
           form = <Text />;
+        break;
+      case ELEMENT_TYPES.area:
+          form = <Area />;
         break;
       default:
         form = <Text />;

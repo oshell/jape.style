@@ -6,7 +6,7 @@ const initialState = [];
 export const elementsReducer = (state = {}, action) => {
   switch (action.type) {
     case actions.ADD_ELEMENT:
-      return EditorController.addDefaultElement(state);
+      return EditorController.addDefaultElement(state, action.payload.type);
     case actions.REMOVE_ELEMENT:
       return state;
     case actions.EDIT_ELEMENT:

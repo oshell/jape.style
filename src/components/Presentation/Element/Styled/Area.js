@@ -1,0 +1,17 @@
+import styled from 'styled-components';
+
+export const Area = styled.div`
+  position: absolute;
+  width: ${props => props.width}px;
+  height: ${props => props.width / (16/9)}px;
+  border: 4px solid red;
+  transform:
+    translate(-50%, -50%)
+    translate3d(
+      ${props => props.position.x}px,
+      ${props => props.position.y}px,
+      ${props => props.position.z}px
+    )
+    scale(${props => props.scale/10});
+
+`;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { ElementTypes } from '../../../constants/ElementTypes';
+import { ELEMENT_TYPES } from '../../../constants/ElementTypes';
+import { Area } from './Styled/Area';
 
 class Element extends Component {
   render() {
@@ -7,12 +8,12 @@ class Element extends Component {
 
     const translate = 'translate(-50%, -50%)';
     const translate3d = 'translate3d(' +
-     element.positionX + 'px,' +
-     element.positionY + 'px,' +
-     element.positionZ + 'px)';
-   const rotateZ = 'rotateZ(' + element.rotationZ + 'deg)';
-   const rotateY = 'rotateY(' + element.rotationY + 'deg)';
-   const rotateX = 'rotateX(' + element.rotationX + 'deg)';
+     element.position.x + 'px,' +
+     element.position.y + 'px,' +
+     element.position.z + 'px)';
+   const rotateZ = 'rotateZ(' + element.rotation.z + 'deg)';
+   const rotateY = 'rotateY(' + element.rotation.y + 'deg)';
+   const rotateX = 'rotateX(' + element.rotation.x + 'deg)';
    const rotation = `${rotateZ}  ${rotateY}  ${rotateX}`
    const scale = ' scale(' + element.scale + ')';
    const transform = `${translate} ${translate3d}  ${rotation}  ${scale}`;
@@ -24,17 +25,21 @@ class Element extends Component {
     };
 
     switch (element.type) {
-      case ElementTypes.area:
-        return <div>Area</div>;
-      case ElementTypes.text:
+      case ELEMENT_TYPES.area:
+        return <Area
+          width={element.width}
+          position={element.position}
+          rotation={element.rotation}
+          scale={element.scale} />;
+      case ELEMENT_TYPES.text:
         divStyle.color = element.color;
         divStyle.fontFamily = element.fontFamily;
         divStyle.fontSize = element.fontSize + 'px';
         divStyle.lineHeight = 1.1;
         return <div style={divStyle}>{element.value}</div>;
-      case ElementTypes.image:
+      case ELEMENT_TYPES.image:
         return <div>Image</div>;
-      case ElementTypes.video:
+      case ELEMENT_TYPES.video:
         return <div>Video</div>;
       default:
         return <div>Unknown</div>;

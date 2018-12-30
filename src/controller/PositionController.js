@@ -16,19 +16,19 @@ class PositionController {
     switch (event.key) {
       case "ArrowLeft":
       case "ArrowRight":
-        position = this.xView(modified.positionX);
+        position = this.xView(modified.position.x);
         newPosition = event.key === "ArrowLeft" ?
           this.xCalc(--position):
           this.xCalc(++position);
-        modified.positionX = newPosition;
+        modified.position.x = newPosition;
         break;
         case "ArrowUp":
         case "ArrowDown":
-          position = this.yView(modified.positionY);
+          position = this.yView(modified.position.y);
           newPosition = event.key === "ArrowUp" ?
             this.yCalc(--position):
             this.yCalc(++position);
-          modified.positionY = newPosition;
+          modified.position.y = newPosition;
           break;
       default:
         break;

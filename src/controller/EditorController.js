@@ -1,22 +1,23 @@
+import { ELEMENT_TYPES } from '../constants/ElementTypes';
+
 class EditorController {
   static createDefaultElement(type = 'text') {
     var element= {
       active: true,
       type: type,
       value: 'Lorem Ipsum',
-      positionX: 0,
-      positionY: 0,
-      positionZ: 0,
-      rotationX: 0,
-      rotationY: 0,
-      rotationZ: 0,
+      position: {x: 0, y:0, z:0},
+      rotation: {x: 0, y:0, z:0},
       scale: 10,
     }
 
     switch (type) {
-      case 'text':
+      case ELEMENT_TYPES.text:
         element.font = '';
         element.fontSize = 50;
+        break;
+      case ELEMENT_TYPES.area:
+        element.width = 500;
         break;
       default:
         break;

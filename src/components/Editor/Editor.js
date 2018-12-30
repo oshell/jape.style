@@ -16,6 +16,7 @@ class Editor extends Component {
   handleOnKeyDown(event) {
     let activeElement = EditorController.getActiveElement(this.props.elements);
     let movedElement = PositionController.handleOnKeyDown(activeElement, event);
+    console.log(movedElement);
     this.props.editElement(movedElement);
   }
 

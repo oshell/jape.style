@@ -1,4 +1,4 @@
-export const ElementTypes = {
+export const ELEMENT_TYPES = {
   area: 'area',
   image: 'image',
   text: 'text',

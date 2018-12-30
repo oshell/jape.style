@@ -1,4 +1,4 @@
-export const fonts = [
+export const FONTS = [
   'Roboto',
   'Open Sans',
   'Poor Story',

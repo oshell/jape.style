@@ -4,9 +4,9 @@ export const EDIT_ELEMENT = 'EDIT_ELEMENT';
 export const ACTIVATE_ELEMENT = 'ACTIVATE_ELEMENT';
 export const TOGGLE_ZOOM = 'TOGGLE_ZOOM';
 
-export const addElement = () => ({
+export const addElement = (type) => ({
   type: ADD_ELEMENT,
-  payload: {}
+  payload: {type}
 });
 
 export const removeElement = (element) => ({
