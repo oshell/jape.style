@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Presentation.scss';
-import Element from '../Element/Element';
+import Element from './Element/Element';
 import { connect } from 'react-redux';
 
 class Presentation extends Component {

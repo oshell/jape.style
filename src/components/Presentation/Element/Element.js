@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { ElementTypes } from '../../constants/ElementTypes';
+import { ElementTypes } from '../../../constants/ElementTypes';
 
 class Element extends Component {
   render() {
