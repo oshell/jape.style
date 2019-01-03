@@ -5,7 +5,7 @@ class EditorController {
     var element= {
       active: true,
       type: type,
-      value: 'Lorem Ipsum',
+      title: 'Title',
       position: {x: 0, y:0, z:0},
       rotation: {x: 0, y:0, z:0},
       scale: 10,
@@ -13,11 +13,13 @@ class EditorController {
 
     switch (type) {
       case ELEMENT_TYPES.text:
+        element.value = 'Lorem Ipsum';
         element.font = '';
         element.fontSize = 50;
         break;
       case ELEMENT_TYPES.area:
-        element.width = 500;
+        element.width = 50;
+        element.scale = 5;
         break;
       default:
         break;

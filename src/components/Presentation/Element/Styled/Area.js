@@ -12,6 +12,8 @@ export const Area = styled.div`
       ${props => props.position.y}px,
       ${props => props.position.z}px
     )
-    scale(${props => props.scale/10});
-
+    rotateX(${props => props.rotation.x}deg)
+    rotateY(${props => props.rotation.y}deg)
+    rotateZ(${props => props.rotation.z}deg)
+    scale(${props => props.scale});
 `;
