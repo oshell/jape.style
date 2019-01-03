@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SizeController from '../../../controller/SizeController';
 import { ELEMENT_TYPES } from '../../../constants/ElementTypes';
 import { Area } from './Styled/Area';
 
@@ -27,7 +28,7 @@ class Element extends Component {
     switch (element.type) {
       case ELEMENT_TYPES.area:
         return <Area
-          width={element.width}
+          width={SizeController.relativeWidth(element.width)}
           position={element.position}
           rotation={element.rotation}
           scale={element.scale} />;

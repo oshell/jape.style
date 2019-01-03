@@ -8,7 +8,16 @@ import './Slider.scss';
 class Slider extends Component {
   handleChange(sliderValue) {
     let element = EditorController.getActiveElement(this.props.elements);
-    element[this.props.propertyName] = sliderValue;
+
+    if (this.props.propertyName.includes(".")) {
+      let props = this.props.propertyName.split(".");
+      let prop = props[0];
+      let subProp = props[1];
+      element[prop][subProp] = sliderValue;
+    } else {
+      element[this.props.propertyName] = sliderValue;
+    }
+
     this.props.editElement(element);
   }
 

@@ -7,7 +7,14 @@ const Area = () => {
     <div>
       <Input />
       <Slider min={10} max={60} defaultValue={20} propertyName="width" />
-      <Slider min={0} max={360} defaultValue={0} step={15} propertyName="rotationZ" />
+      <Slider
+        min={0}
+        max={360}
+        defaultValue={0}
+        step={15}
+        propertyName="rotation.z"
+         />
+       <Slider min={1} max={10} defaultValue={5} propertyName="scale" />
     </div>
   );
 }
