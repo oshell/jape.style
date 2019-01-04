@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class PositionController {
   static xCalc(pos) {return pos * 100 - 5000;}
   static yCalc(pos) {return pos * 60 - 3000;}
@@ -11,7 +13,7 @@ class PositionController {
       return;
     }
 
-    let modified = Object.assign({}, element);
+    let modified = _.cloneDeep(element);
 
     switch (event.key) {
       case "ArrowLeft":
@@ -35,6 +37,11 @@ class PositionController {
     }
 
     return modified;
+  }
+
+  static positionChanged(element, movedElement) {
+    return element.position.x !== movedElement.position.x ||
+      element.position.y !== movedElement.position.y;
   }
 }
 

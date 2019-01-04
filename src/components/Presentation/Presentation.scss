@@ -7,13 +7,4 @@
   left: 50%;
   perspective: 10000px;
   transform: scale(0.1);
-
-  @at-root #{&}__border {
-    position: absolute;
-    transform: translate(-50%, -50%) translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(10);
-    transform-style: preserve-3d;
-    width: 1000px;
-    height: 600px;
-    border: 5px dashed #b5b5b5;
-  }
 }

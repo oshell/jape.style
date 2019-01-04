@@ -1,9 +1,10 @@
 @import "../../../constants/scss/_constants";
 
 .overlay {
+  z-index: 100;
   display: grid;
   position: fixed;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   grid-template-columns: $sidebar-width auto $active-element-width;
   grid-template-rows: $header-height auto $footer-height;

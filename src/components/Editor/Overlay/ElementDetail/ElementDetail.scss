@@ -14,4 +14,15 @@
     margin: 10px;
     padding: 10px;
   }
+
+  &--zoom{
+    float: right;
+    color: $white;
+    cursor: pointer;
+    background-color: $bg-darkgrey;
+    box-shadow: $shadow-default;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+  }
 }

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { elementsReducer } from './elementsReducer';
+import { presentationReducer } from './presentationReducer';
 
 export const rootReducer = combineReducers({
-  elements: elementsReducer
+  elements: elementsReducer,
+  presentation: presentationReducer
 });
