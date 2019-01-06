@@ -1,0 +1,15 @@
+[ignore]
+.*/git/.*
+.*/node_modules/.*
+.*/build/.*
+
+[include]
+
+[libs]
+flow-type-ref
+
+[lints]
+
+[options]
+
+[strict]
