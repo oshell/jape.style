@@ -1,15 +1,15 @@
 // @flow
 import React, { Component } from 'react';
 import Presentation from '../Presentation/Presentation';
-import './Editor.css';
+import './Editor.scss';
 import EditorController from '../../controller/EditorController';
 import PositionController from '../../controller/PositionController';
 import { connect } from 'react-redux';
-import { editElement } from '../../actions/actions';
+import { edit } from '../../actions/actions';
 import Overlay from './Overlay/Overlay';
 
 type Props = {
-  editElement: Function,
+  edit: Function,
   elements: Array<Object>
 };
 
@@ -20,11 +20,13 @@ class Editor extends Component<Props> {
   }
 
   handleOnKeyDown(event: Object) {
-    let activeElement = EditorController.getActiveElement(this.props.elements);
-    let movedElement = PositionController.handleOnKeyDown(activeElement, event);
-    let changed = PositionController.positionChanged(activeElement, movedElement);
+    let generic = this.props.presentation.zoomed
+      ? EditorController.getActiveElement(this.props.areas)
+      : EditorController.getActiveArea(this.props.areas);
+    let moved = PositionController.handleOnKeyDown(generic, event);
+    let changed = PositionController.positionChanged(generic, moved);
     if (changed) {
-      this.props.editElement(movedElement);
+      this.props.edit(moved);
     }
   }
 
@@ -41,9 +43,10 @@ class Editor extends Component<Props> {
 }
 
 const mapStateToProps = (state) => ({
-  elements: state.elements
+  areas: state.areas,
+  presentation: state.presentation
 });
 
-const mapDispatchToProps = {editElement};
+const mapDispatchToProps = {edit};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editElement } from '../../../../../../actions/actions';
+import { edit } from '../../../../../../actions/actions';
 import EditorController from '../../../../../../controller/EditorController';
 import ReactSlider from 'react-slider';
 import './Slider.scss';
 
 class Slider extends Component {
   handleChange(sliderValue) {
-    let element = EditorController.getActiveElement(this.props.elements);
+    let generic = this.props.presentation.zoomed
+      ? EditorController.getActiveElement(this.props.areas)
+      : EditorController.getActiveArea(this.props.areas);
 
     if (this.props.propertyName.includes(".")) {
       let props = this.props.propertyName.split(".");
       let prop = props[0];
       let subProp = props[1];
-      element[prop][subProp] = sliderValue;
+      generic[prop][subProp] = sliderValue;
     } else {
-      element[this.props.propertyName] = sliderValue;
+      generic[this.props.propertyName] = sliderValue;
     }
 
-    this.props.editElement(element);
+    this.props.edit(generic);
   }
 
   render() {
-    let element = EditorController.getActiveElement(this.props.elements);
+    let generic = this.props.presentation.zoomed
+      ? EditorController.getActiveElement(this.props.areas)
+      : EditorController.getActiveArea(this.props.areas);
 
     return(
       <ReactSlider
@@ -30,7 +34,7 @@ class Slider extends Component {
         min={this.props.min ? this.props.min : 0}
         max={this.props.max ? this.props.max : 100}
         step={this.props.step ? this.props.step : 1}
-        defaultValue={element[this.props.propertyName] ? element[this.props.propertyName] : 50}
+        defaultValue={generic[this.props.propertyName] ? generic[this.props.propertyName] : 50}
         disabled={this.props.disabled ? this.props.disabled : false}
         onChange={this.handleChange.bind(this)}
         withBars
@@ -40,9 +44,10 @@ class Slider extends Component {
 }
 
 const mapStateToProps = state => ({
-  elements: state.elements
+  areas: state.areas,
+  presentation: state.presentation
 });
 
-const mapDispatchToProps = {editElement};
+const mapDispatchToProps = {edit};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Slider);

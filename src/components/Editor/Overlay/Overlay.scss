@@ -11,10 +11,5 @@
   grid-template-areas:
     "logo controls controls"
     "element-link-list . element-detail"
-    "footer footer footer";
-}
-
-.footer {
-  grid-area: footer;
-  background-color: green;
+    "element-link-list . .";
 }

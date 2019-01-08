@@ -1,25 +1,15 @@
+// @flow
+import type { Element, Area } from '../types/editor';
+import { FONTS } from '../constants/Fonts';
 import { ELEMENT_TYPES } from '../constants/ElementTypes';
 
 class EditorController {
-  static createDefaultElement(type = 'text') {
-    var element= {
-      active: true,
-      type: type,
-      title: 'Title',
-      position: {x: 0, y:0, z:0},
-      rotation: {x: 0, y:0, z:0},
-      scale: 10,
-    }
+  static createDefaultElement(type: string = 'text'):Element {
+    let element:Element = this.createTextElement();
 
     switch (type) {
       case ELEMENT_TYPES.text:
-        element.value = 'Lorem Ipsum';
-        element.font = '';
-        element.fontSize = 50;
-        break;
-      case ELEMENT_TYPES.area:
-        element.width = 50;
-        element.scale = 5;
+        element = this.createTextElement();
         break;
       default:
         break;
@@ -28,54 +18,134 @@ class EditorController {
     return element;
   }
 
-  static addDefaultElement(elements, type = 'text') {
-    elements = elements.length ? elements : [];
-    let element = this.createDefaultElement(type);
-    let modified = elements.slice();
-    modified.push(element);
-    modified = this.activateLastElement(modified);
-    modified = this.addIndexProp(modified);
+  static createTextElement():Element {
+    let element:Element =  {
+      index: 0,
+      type: 'text',
+      active: true,
+      title: 'Title',
+      width: 20,
+      position: {x: 0, y:0},
+      rotation: 0,
+      value: 'Lorem Ipsum',
+      font: FONTS[0],
+      fontSize: 20,
+    };
+
+    return element;
+  }
+
+  static createArea():Area {
+    let area:Area = {
+      index: 0,
+      active: true,
+      title: 'Untitled',
+      width: 50,
+      scale: 5,
+      position: {x:0,y:0,z:0},
+      rotation: {x:0,y:0,z:0},
+      elements: []
+    };
+
+    return area;
+  }
+
+  static addArea(areas:Array<Area>):Array<Area> {
+    let newArea:Area = this.createArea();
+    let modified = areas.slice();
+    modified.push(newArea);
+    modified = this.activateLast(modified);
+    modified = this.setIndexProp(modified);
     return modified;
   }
 
-  static getActiveElement(elements) {
+  static addElement(areas:Array<Area>, index:number, type:string  = 'text'):Array<Area> {
+    let area:Area = areas[index];
+    let elements:Array<Element> = area.elements;
+    let element:Element = this.createDefaultElement(type);
+    let modified:Array<Element> = elements.slice();
+    modified.push(element);
+    modified = this.activateLast(modified);
+    modified = this.setIndexProp(modified);
+
+    area.elements = modified;
+    areas[index] = area;
+    return areas;
+  }
+
+  static getActiveElement(areas:Array<Area>):Element | null {
+    let activeArea = this.getActiveArea(areas);
+    if (activeArea === null) {
+      return null;
+    }
+
+    let elements = activeArea.elements;
+
+    // just return element with active attribute true
     for (let i=0; i<elements.length; i++) {
-      let element = elements[i];
+      let element:Element = elements[i];
       if (element.active) {
         return element;
       }
     }
+    // if there is no active one return null
+    return null;
   }
 
-  static addIndexProp(elements) {
-    for (let i=0; i<elements.length; i++) {
-      let element = elements[i];
-      element.index = i;
+  static getActiveArea(areas:Array<Area>):Area | null  {
+    for (let i=0; i<areas.length; i++) {
+      let area:Area = areas[i];
+      if (area.active) {
+        return area;
+      }
     }
-    return elements;
+    // if there is no active one return null
+    return null;
   }
 
-  static editElement(element, elements) {
-    const modified = elements.slice();
-    modified[element.index] = element;
+  static setIndexProp(generics:Array<Object>):Array<Object> {
+    for (let i=0; i<generics.length; i++) {
+      let generic = generics[i];
+      generic.index = i;
+    }
+    return generics;
+  }
+
+  static edit(generic:Object, areas:Array<Area>):Array<Area> {
+    //check if generic is area or element
+    let isElement = generic.hasOwnProperty('type');
+    //working copy of areas
+    let modified = areas.slice();
+    // if we have an element, we replace it in the active area
+    if (isElement) {
+      let activeArea = this.getActiveArea(modified);
+      let elements = activeArea.elements;
+      let modifiedElements = elements.slice();
+      modifiedElements[generic.index] = generic;
+      modified.elements = modifiedElements;
+    } else {
+      modified[generic.index] = generic;
+    }
+
     return modified;
   }
 
-  static setActiveElement(index, elements) {
-    let modified = elements.slice();
+  static setActive(index:number, generics:Array<Object>):Array<Object> {
+    let modified:Array<Object> = generics.slice();
 
     for (let i=0; i<modified.length; i++) {
-      let element = modified[i];
-      element.active = false;
+      let generic:Object = modified[i];
+      generic.active = false;
     }
 
     modified[index].active = true;
     return modified;
   }
 
-  static activateLastElement(elements) {
-    let index = elements.length -1;
-    return this.setActiveElement(index, elements);
+  static activateLast(generics:Array<Object>):Array<Object> {
+    let index = generics.length -1;
+    let modified = this.setActive(index, generics);
+    return modified;
   }
 }
 

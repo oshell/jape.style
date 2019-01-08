@@ -1,11 +1,11 @@
 import React from 'react';
-import Slider from '../FormElements/Slider/Slider';
-import Input from '../FormElements/Input/Input';
+import Slider from './Slider/Slider';
+import Input from './Input/Input';
 
 const Area = () => {
   return(
     <div>
-      <Input />
+      <Input  propertyName="title" />
       <Slider min={10} max={60} defaultValue={20} propertyName="width" />
       <Slider
         min={0}

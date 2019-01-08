@@ -1,8 +1,14 @@
+export const ADD_AREA = 'ADD_AREA';
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const REMOVE_ELEMENT = 'REMOVE_ELEMENT';
-export const EDIT_ELEMENT = 'EDIT_ELEMENT';
+export const EDIT = 'EDIT';
 export const ACTIVATE_ELEMENT = 'ACTIVATE_ELEMENT';
 export const TOGGLE_ZOOM = 'TOGGLE_ZOOM';
+
+export const addArea = () => ({
+  type: ADD_AREA,
+  payload: {}
+});
 
 export const addElement = (type) => ({
   type: ADD_ELEMENT,
@@ -14,9 +20,9 @@ export const removeElement = (element) => ({
   payload: {element}
 });
 
-export const editElement = (element) => ({
-  type: EDIT_ELEMENT,
-  payload: {element}
+export const edit = (generic) => ({
+  type: EDIT,
+  payload: {generic}
 });
 
 export const activateElement = (index) => ({

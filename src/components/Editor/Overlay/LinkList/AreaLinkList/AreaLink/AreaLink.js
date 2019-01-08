@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {ToggleBox} from './ToggleBox';
+import {ToggleBox} from '../../ToggleBox';
 
 import { connect } from 'react-redux';
-import { activateElement } from '../../../../../actions/actions.js';
+import { activateElement } from '../../../../../../actions/actions.js';
 
-class ElementLink extends Component {
+class AreaLink extends Component {
   render() {
     return (
       <ToggleBox
@@ -23,4 +23,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { activateElement };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ElementLink);
+export default connect(mapStateToProps, mapDispatchToProps)(AreaLink);

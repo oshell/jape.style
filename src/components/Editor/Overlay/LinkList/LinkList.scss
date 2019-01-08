@@ -1,12 +1,12 @@
 @import "../../../../constants/scss/colors";
 @import "../../../../constants/scss/shadows";
 
-.element-link-list {
+.link-list {
   grid-area: element-link-list;
   background-color: $bg-dark;
   box-shadow: $shadow-default-inner;
 
-  &__element-link {
+  &__link {
     text-align: center;
     padding: 5px 10px;
     text-transform: capitalize;

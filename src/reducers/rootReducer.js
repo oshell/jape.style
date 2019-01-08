@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { elementsReducer } from './elementsReducer';
+import { areasReducer } from './areasReducer';
 import { presentationReducer } from './presentationReducer';
 
 export const rootReducer = combineReducers({
-  elements: elementsReducer,
+  areas: areasReducer,
   presentation: presentationReducer
 });

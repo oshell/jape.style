@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class Presentation extends Component {
   render() {
-    let elements = this.props.elements;
+    let areas = this.props.areas;
     let translate3d = 'translate3d(' +
      this.props.presentation.position.x + 'px,' +
      this.props.presentation.position.y + 'px,' +
@@ -16,21 +16,21 @@ class Presentation extends Component {
       transform: transform
     }
 
-    if (elements.length) {
-      elements = elements.map((element, index) => <Element key={index} element={element}/>);
+    if (areas.length) {
+      areas = areas.map((area, index) => <Element key={index} element={area}/>);
     } else {
-      elements = [];
+      areas = [];
     }
 
     return (<div className="presentation" style={style}>
-      {elements}
+      {areas}
     </div>);
   }
 }
 
 
 const mapStateToProps = state => ({
-  elements: state.elements,
+  areas: state.areas,
   presentation: state.presentation
 });
 

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Overlay.scss';
 import Controls from './Controls/Controls';
 import Logo from './Logo/Logo';
-import ElementLinkList from './ElementLinkList/ElementLinkList';
-import ElementDetail from './ElementDetail/ElementDetail';
+import LinkList from './LinkList/LinkList';
+import Detail from './Detail/Detail';
 
 class Overlay extends Component {
   render() {
@@ -11,8 +11,8 @@ class Overlay extends Component {
       <div className="overlay">
         <Logo />
         <Controls />
-        <ElementLinkList />
-        <ElementDetail />
+        <LinkList />
+        <Detail />
         <div className="footer"></div>
       </div>
     );

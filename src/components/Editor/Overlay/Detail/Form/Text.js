@@ -1,8 +1,8 @@
 import React from 'react';
-import Slider from '../FormElements/Slider/Slider';
-import Dropdown from '../FormElements/Dropdown/Dropdown';
-import Colorpicker from '../FormElements/Colorpicker/Colorpicker';
-import Input from '../FormElements/Input/Input';
+import Slider from './Slider/Slider';
+import Dropdown from './Dropdown/Dropdown';
+import Colorpicker from './Colorpicker/Colorpicker';
+import Input from './Input/Input';
 import {FONTS} from '../../../../../constants/Fonts';
 
 const Text = () => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './ElementLinkList.scss';
 import ElementLink from './ElementLink/ElementLink';
 import { connect } from 'react-redux';
 
