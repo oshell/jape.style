@@ -4,6 +4,7 @@ import Controls from './Controls/Controls';
 import Logo from './Logo/Logo';
 import LinkList from './LinkList/LinkList';
 import Detail from './Detail/Detail';
+import Navigator from './Navigator/Navigator';
 
 class Overlay extends Component {
   render() {
@@ -13,7 +14,7 @@ class Overlay extends Component {
         <Controls />
         <LinkList />
         <Detail />
-        <div className="footer"></div>
+        <Navigator />
       </div>
     );
   }

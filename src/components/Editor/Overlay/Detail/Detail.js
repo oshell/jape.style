@@ -9,11 +9,6 @@ import Area from './Form/Area';
 import './Detail.scss';
 
 class ElementDetail extends Component {
-  handleZoom() {
-      let activeElement = EditorController.getActiveElement(this.props.elements);
-      this.props.toggleZoom(activeElement);
-  }
-
   // render area details or selected element details based on zoom state
   render() {
     let jsx= <div></div>;

@@ -11,7 +11,7 @@ class Presentation extends Component {
      this.props.presentation.position.y + 'px,' +
      this.props.presentation.position.z + 'px)';
     let scale = ' scale(' + this.props.presentation.scale + ')';
-    let transform = `${translate3d}   ${scale}`;
+    let transform = `${translate3d} ${scale}`;
     let style = {
       transform: transform
     }
