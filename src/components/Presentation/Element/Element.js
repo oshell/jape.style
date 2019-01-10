@@ -29,6 +29,7 @@ class Element extends Component {
       case ELEMENT_TYPES.area:
         return <Area
           width={SizeController.relativeWidth(element.width)}
+          active={element.active}
           position={element.position}
           rotation={element.rotation}
           scale={element.scale} />;

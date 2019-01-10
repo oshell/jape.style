@@ -4,7 +4,7 @@ export const Area = styled.div`
   position: absolute;
   width: ${props => props.width}px;
   height: ${props => props.width / (16/9)}px;
-  border: 4px solid red;
+  border: 3px dashed ${props => props.active ? 'blue' : '#ccc'};
   transform:
     translate(-50%, -50%)
     translate3d(
