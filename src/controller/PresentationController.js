@@ -39,7 +39,7 @@ class PresentationController {
         position: {x,y,z}
       }
     }
-    
+
     return state;
   }
 }

@@ -53,7 +53,7 @@ class ElementDetail extends Component {
     }
 
     return(
-      <div className='detail'><div className='detail--box'>{jsx}</div></div>
+      <div className='detail'>{jsx}</div>
     );
   }
 }

@@ -8,10 +8,19 @@
   }
 
   &--box{
-    background-color: $bg-darkgrey;
+    background-color: $bg-grey;
     box-shadow: $shadow-default;
     border-radius: 3px;
     margin: 10px;
+  }
+
+  &--title{
+    background-color: $bg-darkgrey;
+    color: $white;
+    padding: 10px;
+  }
+
+  &--content{
     padding: 10px;
   }
 
