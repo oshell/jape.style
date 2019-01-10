@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import {ToggleBox} from '../../ToggleBox';
 
 import { connect } from 'react-redux';
-import { activateElement } from '../../../../../../actions/actions.js';
+import { activate } from '../../../../../../actions/actions.js';
 
 class AreaLink extends Component {
   render() {
     return (
       <ToggleBox
-        className="element-link-list__element-link"
-        active={this.props.element.active}
-        onClick={() => {this.props.activateElement(this.props.index)}}>
-        {this.props.element.type}
+        className="link-list__link"
+        active={this.props.area.active}
+        onClick={() => {this.props.activate(this.props.index)}}>
+        {this.props.area.title}
       </ToggleBox>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  elements: state.elements
+  areas: state.areas
 });
 
-const mapDispatchToProps = { activateElement };
+const mapDispatchToProps = { activate };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AreaLink);

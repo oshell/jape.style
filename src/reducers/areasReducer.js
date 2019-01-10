@@ -13,8 +13,8 @@ export const areasReducer = (areas = {}, action) => {
       return areas;
     case actions.EDIT:
       return EditorController.edit(action.payload.generic, areas);
-    case actions.ACTIVATE_ELEMENT:
-      return areas;
+    case actions.ACTIVATE:
+      return EditorController.activate(action.payload.index, areas);
     default:
       if (areas.length) {
         return areas;

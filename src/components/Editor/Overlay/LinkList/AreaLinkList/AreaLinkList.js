@@ -8,8 +8,8 @@ class AreaLinkList extends Component {
     let jsx = [];
 
     if (areas.length) {
-      jsx = areas.map((element, index) => {
-        return(<AreaLink index={index} element={element}/>);
+      jsx = areas.map((area, index) => {
+        return(<AreaLink index={index} area={area}/>);
       });
     }
 

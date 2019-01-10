@@ -130,7 +130,7 @@ class EditorController {
     return modified;
   }
 
-  static setActive(index:number, generics:Array<Object>):Array<Object> {
+  static activate(index:number, generics:Array<Object>):Array<Object> {
     let modified:Array<Object> = generics.slice();
 
     for (let i=0; i<modified.length; i++) {
@@ -144,7 +144,7 @@ class EditorController {
 
   static activateLast(generics:Array<Object>):Array<Object> {
     let index = generics.length -1;
-    let modified = this.setActive(index, generics);
+    let modified = this.activate(index, generics);
     return modified;
   }
 }
